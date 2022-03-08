@@ -1,11 +1,11 @@
 {
-  "name": "practice_git",
+  "name": "Practice connection API",
   "version": "1.0.0",
-  "description": "",
+  "description": "Project connect to The Star Wars API",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Irwing Naranjo <khalisser@gmail.com>",
   "license": "ISC"
 }
