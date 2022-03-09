@@ -1,5 +1,5 @@
 {
-  "name": "Practice connection API",
+  "name": "practice_connection_api",
   "version": "1.0.0",
   "description": "Project connect to The Star Wars API",
   "main": "index.js",
