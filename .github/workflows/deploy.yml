@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Test
-        run: npm test
+        run: npm test --detectOpenHandles
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.2.5
