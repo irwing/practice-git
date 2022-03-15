@@ -4,18 +4,34 @@ on:
     branches:
       - main
 jobs:
-  build-and-deploy:
+  install:
+    name: install
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-
       - name: Install
         run: npm install
 
+  test:
+    name: test
+    needs: install
+    runs-on: ubuntu-latest
+    steps:
       - name: Test
         run: npm test
 
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
+        with:
+          branch: master
+          folder: ./
+
+  deploy:
+    anem: deploy
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.2.5
         with:
