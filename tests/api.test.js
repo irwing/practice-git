@@ -6,8 +6,6 @@ const env = require("dotenv");
 
 env.config();
 
-const urlApi = process.env.URL_API;
-const portApi = process.env.PORT_API;
 const urlSwapi = process.env.URL_SWAPI;
 
 describe("swapi", () => {
@@ -22,21 +20,21 @@ describe("swapi", () => {
 describe("api", () => {
   // test api http://localhost:3000/api
   it("should return a 200 response when api is active", async () => {
-    const response = await axios.get(`${urlApi}:${portApi}/api`);
+    const response = await request(app).get(`/api`);
     expect(response.status).toBe(200);
-    expect(response.data).toContain("Api Star Wars");
+    expect(response.text).toContain("Api Star Wars");
   });
 
   // test api http://localhost:3000/api/person/1
   it("should return a 200 response when find a person", async () => {
-    const response = await axios.get(`${urlApi}:${portApi}/api/persons/1`);
+    const response = await request(app).get(`/api/persons/1`);
     expect(response.status).toBe(200);
-    expect(response.data.name).toBe("Luke Skywalker");
+    expect(response.body.name).toBe("Luke Skywalker");
   });
 
   // test api http://localhost:3000/api/docs
   it("should return a 200 response if the documentatin is active", async () => {
-    const response = await axios.get(`${urlApi}:${portApi}/api/docs`);
+    const response = await request(app).get(`/api/docs`);
     expect(response.status).toBe(200);
   });
 

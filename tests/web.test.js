@@ -1,10 +1,11 @@
-const axios = require("axios");
-
-const urlWeb = "https://irwing.github.io/practice-git";
+const app = require("../index.js");
+const request = require("supertest");
 
 describe("web", () => {
-  it("should return a 200 response", async () => {
-    const response = await axios.get(urlWeb);
+  // test api http://localhost:3000
+  it("should return a 200 response when web is active", async () => {
+    const response = await request(app).get(`/`);
     expect(response.status).toBe(200);
+    expect(response.text).toContain("Practice");
   });
 });
