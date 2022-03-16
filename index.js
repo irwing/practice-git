@@ -33,7 +33,7 @@ app.get("/api/persons/:id", async (req, res) => {
 
 // route index html
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
+  res.sendFile(__dirname + "/home.html");
 });
 
 // return 404 if no route is found
